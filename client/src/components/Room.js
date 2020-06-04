@@ -6,12 +6,13 @@ const Room = ({ roomName, token, handleLogout }) => {
   const [participants, setParticipants] = useState([])
 
   const remoteParticipants = participants.map(participant => (
-    <p key={participant.sid}>participant.identity</p>
+    <p key={participant.sid}>{participant.identity}</p>
   ))
   useEffect(() => {
     const participantConnected = participant => {
       setParticipants(prevParticipants => [...prevParticipants, participant])
     }
+    console.log(participants)
     const participantDisconnected = participant => {
       setParticipants(prevParticipants =>
         prevParticipants.filter(p => p !== participant)
